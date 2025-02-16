@@ -1,18 +1,13 @@
 import { Card, CardHeader, CardTitle,CardContent } from "@/components/ui/card";
+import BooksList from "@/components/book/BooksList";
+import { Books } from "@prisma/client";
 
-export default function MainSection(){
+
+export default function MainSection() {
+ 
     return (
-        <div className="px-4 py-2">
-         <Card className="w-25">
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle>
-                Moddhanno
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              this a i
-            </CardContent>
-         </Card>
+      <div className="flex flex-col justify-center items-center">
+         <BooksList />
       </div>
     )
 }

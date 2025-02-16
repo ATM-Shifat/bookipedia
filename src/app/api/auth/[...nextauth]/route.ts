@@ -19,22 +19,21 @@ const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          return null
+          return null;
         }
-
-
+      
         const hashedPassword = CryptoJS.SHA256(credentials.password).toString(CryptoJS.enc.Hex);
-        
+      
         const user = await prisma.users.findUnique({
-          where: { email: credentials.email, password: hashedPassword},
+          where: { email: credentials.email },
         });
-
-        if (!user) {
-          return null
+      
+        if (!user || user.password !== hashedPassword) {
+          return null;
         }
+      
+        return {id: user.id.toString(), email: user.email, name: user.name};
 
-
-        return { id: user.id.toString(), email: user.email, name: user.name };
       },
     }),
   ],

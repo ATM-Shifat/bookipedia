@@ -29,7 +29,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       where: { email: formData.email },
     });
     if (existingUser) {
-      return NextResponse.json({ statusCode: 409, error: "User already exists" });
+      return NextResponse.json({ statusCode: 409, error: "User already exists"});
     }
 
     const hashedPassword = CryptoJS.SHA256(formData.password).toString(CryptoJS.enc.Hex);

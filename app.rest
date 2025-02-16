@@ -1,0 +1,45 @@
+
+
+POST http://localhost:3000/api/bookipedia/
+Content-Type: application/json
+
+
+### Delete book
+DELETE http://localhost:3000/api/bookipedia/19
+Content-Type: application/json
+
+###
+PUT http://localhost:3000/api/bookipedia/5
+Content-Type: application/json
+
+{
+  
+    "title" : "The Great Gatsby",
+    "author":"F. Scott Fitzgerald",
+    "genre":"Fiction",
+    "publishedYear":"1925",
+}
+
+
+###
+PUT http://localhost:3000/api/bookipedia/5
+Content-Type: application/json
+
+{
+  "title" : "DELETE"
+}
+
+##
+{
+    "id":16,
+    "title":"The Road",
+    "author":"Cormac McCarthy",
+    "genre":"Post-Apocalyptic",
+    "publishedYear":"2006",
+    "synopsis":"A father and son’s journey through a post-apocalyptic world.",
+    "public":true,
+    "userId":2,
+    "deleted":false,
+    "createdAt":"2025-02-13T19:34:53.873Z",
+    "updatedAt":"2025-02-13T19:34:53.873Z"
+}

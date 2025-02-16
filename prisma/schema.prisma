@@ -18,6 +18,8 @@ model Users {
   email     String @unique
   name      String
   password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   books     Books[]
 }
 
@@ -30,5 +32,8 @@ model Books {
   synopsis      String
   public        Boolean @default(false)
   userId        Int
+  deleted       Boolean @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime  @updatedAt
   user          Users @relation(fields: [userId], references: [id])
 }

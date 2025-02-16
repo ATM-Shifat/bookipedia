@@ -7,13 +7,11 @@ export function middleware(req: NextRequest) {
   const { nextUrl } = req;
   const isPublicRoute = publicPaths.includes(nextUrl.pathname);
 
-  // Retrieve session token from cookies
-  const token = req.cookies.get("next-auth.session-token") || req.cookies.get("__Secure-next-auth.session-token");
-
-  // Allow access to public routes
   if (isPublicRoute) {
     return NextResponse.next();
   }
+  // Retrieve session token from cookies
+  const token = req.cookies.get("next-auth.session-token") || req.cookies.get("__Secure-next-auth.session-token");
 
   // If no token is found, redirect to login page
   if (!token) {

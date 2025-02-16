@@ -22,7 +22,7 @@ export function NavButton({
             aria-label={label}
             title={label}
             className="rounded-full"
-            asChild
+            asChild = {href ? true : false}
         >
             {href ? (
                 <Link href={href}>
